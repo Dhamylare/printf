@@ -11,7 +11,6 @@ unsigned int (*h_specifiers(const char *specifier))(va_list, buffer_t *,
  * h_flags - match flags with corresponding value
  * @flag: pointer to string of flags
  * @index: index counter
- *
  * Return: return the value of flag characters
  */
 unsigned char h_flags(const char *flag, char *index)
@@ -149,10 +148,11 @@ int h_precision(va_list ap, const char *modifier, char *index)
 }
 
 /**
- * h_specifiers - Matches conversion specifier with a corresponding function
- * @specifier: pointer to a conversion specifier
- * Return: a pointer to the function or NULL.
- */
+* h_specifiers - matches appropriate function to the given argument
+* @char: unsigned char
+* @int: integer
+* Return: a pointer to the function or NULL.
+*/
 unsigned int (*h_specifiers(const char *specifier))(va_list, buffer_t *,
 		unsigned char, int, int, unsigned char)
 {

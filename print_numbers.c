@@ -1,12 +1,4 @@
 #include "main.h"
-unsigned int print_di(va_list ap, buffer_t *output,
-		unsigned char flags, int d, int precise, unsigned char len);
-unsigned int print_b(va_list ap, buffer_t *output,
-		unsigned char flags, int d, int precise, unsigned char len);
-unsigned int print_u(va_list ap, buffer_t *output,
-		unsigned char flags, int d, int precise, unsigned char len);
-unsigned int print_o(va_list ap, buffer_t *output,
-		unsigned char flags, int d, int precise, unsigned char len);
 /**
  * print_di - prints signed integers
  * @ap: variable arguments
@@ -37,10 +29,8 @@ unsigned int print_di(va_list ap, buffer_t *output,
 		if (k == LONG_MIN)
 			count += 19;
 		else
-		{
 			for (copy = (k < 0) ? -k : k; copy > 0; copy /= 10)
 				count++;
-		}
 		count += (k == 0) ? 1 : 0;
 		count += (k < 0) ? 1 : 0;
 		count += (PLUS_FLAG == 1 && k >= 0) ? 1 : 0;
@@ -58,8 +48,7 @@ unsigned int print_di(va_list ap, buffer_t *output,
 	if (ZERO_FLAG == 0 && (PLUS_FLAG == 1 && k >= 0))
 		res += _memcpy(output, &plus, 1);
 	if (!(k == 0 && precise == 0))
-		res += long_base(output, k, "0123456789",
-				flags, 0, precise);
+		res += long_base(output, k, "0123456789", flags, 0, precise);
 	res += print_neg_width(output, res, flags, d);
 	return (res);
 }

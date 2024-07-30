@@ -21,7 +21,6 @@ void clean(va_list ap, buffer_t *output)
  * @format: character string to print
  * @output: struct containing a buffer
  * @ap: arguments
- *
  * Return: The number of characters stored to output.
  */
 int r_printf(const char *format, va_list ap, buffer_t *output)
