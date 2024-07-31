@@ -1,12 +1,5 @@
 #include "main.h"
 
-unsigned char h_flags(const char *flag, char *index);
-unsigned char h_length(const char *modifier, char *index);
-int h_width(va_list ap, const char *modifier, char *index);
-int h_precision(va_list ap, const char *modifier, char *index);
-unsigned int (*h_specifiers(const char *specifier))(va_list, buffer_t *,
-		unsigned char, int, int, unsigned char);
-
 /**
  * h_flags - match flags with corresponding value
  * @flag: pointer to string of flags
